@@ -1,7 +1,7 @@
 import sha1 from 'sha1';
+import { ObjectId } from 'mongodb';
 import dbClient from '../utils/db';
 import tokenPar from '../utils/token';
-import { ObjectId } from 'mongodb';
 
 class UsersController {
   static async postNew(req, res) {
@@ -37,7 +37,7 @@ class UsersController {
     const user = await dbClient.findUser({ _id: ObjectId(userId) });
     if (!user) {
       return res.status(401).json({ error: 'Unauthorized' });
-    } 
+    }
     return res.status(200).json({ id: user._id, email: user.email });
   }
 }
