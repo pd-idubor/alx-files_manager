@@ -35,7 +35,6 @@ class DBClient {
   async createUser(user) {
     return this.db.collection('users').insertOne(user);
   }
-
 }
 
 const dbClient = new DBClient();
