@@ -23,7 +23,7 @@ class UsersController {
     return res.status(201).json({ id: newUser.insertedId, email });
   }
 
-  static async getUser(req, res) {
+  static async getMe(req, res) {
     const tokenVal = req.headers['x-token'];
     if (!tokenVal) {
       return res.status(401).json({ error: 'Unauthorized' });
